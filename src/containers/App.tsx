@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import * as React from 'react';
+// import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import MainPage from '../components/MainPage';
 
 import { setSearchField, requestRobots } from '../actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: any) => {
   return {
     'searchField': state.searchRobots.searchField,
     'robots': state.requestRobots.robots,
@@ -14,14 +15,14 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
-    'onSearchChange': (event) => { dispatch(setSearchField(event.target.value)); },
+    'onSearchChange': (event: any) => { dispatch(setSearchField(event.target.value)); },
     'onRequestRobots': () => { return dispatch(requestRobots()); }
   };
 };
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return <MainPage {...this.props} />
   }
